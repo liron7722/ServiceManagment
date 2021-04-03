@@ -1,6 +1,14 @@
 # ServiceManagment‏
-Made by Liron Revah - used python3
-Made to sync service registertion on the main db
+Made by Liron Revah - used python3  
+Made to sync service registration on the main db
+
+#### Environment Variables to create
+- NAME <Service Name>
+- TYPE <Service type>
+- ENV <Environment type>
+- PORT <Service Port>
+- DB_URI <General db uri>
+
 
 #### if you want virtual environment run:
 ###### In Windows
