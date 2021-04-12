@@ -31,6 +31,7 @@ Made to sync service registration on the main db
 
 (With Supervisor)
 - sudo apt install supervisor
+- sudo mkdir /var/log/service/
 - sudo touch /var/log/service/script.err.log
 - sudo touch /var/log/service/script.out.log
 - sudo nano /etc/supervisor/conf.d/script.conf  
