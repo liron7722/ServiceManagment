@@ -69,7 +69,7 @@ class ServiceManagement:
             print('insert document to collection')
 
 
-def run() -> None:
+def run_service_manager_on_schedule() -> None:
     service_manager = ServiceManagement()
     job = service_manager.post_service
     schedule.every(60).seconds.do(job)
@@ -80,4 +80,4 @@ def run() -> None:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    run()
+    run_service_manager_on_schedule()
