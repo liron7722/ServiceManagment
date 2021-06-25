@@ -7,11 +7,11 @@ from pymongo.mongo_client import database
 from pymongo.errors import ServerSelectionTimeoutError, DuplicateKeyError
 
 
-ENV = environ.get('ENV') or 'Development'
-NAME = environ.get('NAME') or 'Unlisted'
-TYPE = environ.get('TYPE') or 'Unlisted'
-IP = get('https://api.ipify.org').text
-PORT = environ.get('PORT') or 'Unlisted'
+ENV = environ.get('ENV') or 'Development'  # example: Production \ Development
+NAME = environ.get('NAME') or 'Unlisted'  # example: AWS \ Liron Laptop
+TYPE = environ.get('TYPE') or 'Unlisted'  # example: Elastic
+PORT = environ.get('PORT') or 'Unlisted'  # example: 5000
+SERVER_LOCATION = environ.get('SERVER_LOCATION') or 'Unlisted'  # example: RaspberryPI \ AWS LironWebsite
 DB_URI = environ.get('DB_URI') or 'Unlisted'
 
 
@@ -49,8 +49,9 @@ class ServiceManagement:
             'name': NAME,
             'type': TYPE,
             'env': ENV,
-            'ip': IP,
-            'port': PORT
+            'ip': get('https://api.ipify.org').text,
+            'port': PORT,
+            'server_location':SERVER_LOCATION
         }
         fil = {'name': NAME, 'type': TYPE}
         db = self.client.get_database(name='service')
