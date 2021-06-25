@@ -1,0 +1,5 @@
+version: "3.8"
+services:
+  service_managment_1:
+    image: service_managment
+    container_name: service_managment_1
