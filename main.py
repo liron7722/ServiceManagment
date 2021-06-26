@@ -12,7 +12,7 @@ NAME = environ.get('NAME') or 'Unlisted'  # example: AWS \ Liron Laptop
 TYPE = environ.get('TYPE') or 'Unlisted'  # example: Elastic
 PORT = environ.get('PORT') or 'Unlisted'  # example: 5000
 SERVER_LOCATION = environ.get('SERVER_LOCATION') or 'Unlisted'  # example: RaspberryPI \ AWS LironWebsite
-DB_URI = environ.get('DB_URI') or 'Unlisted'
+DB_URI = environ.get('DB_URI') or None
 
 
 class ServiceManagement:
@@ -22,9 +22,11 @@ class ServiceManagement:
         self.establish_db_connection()
 
     def establish_db_connection(self) -> None:
+        if DB_URI is None:
+            raise ValueError("No Enviorment Variable DB_URI - No reason to run without it")
         try:
             self.client = MongoClient(DB_URI)  # establish connection
-            print('db establish connection')
+            print('db establishing connection')
         except ServerSelectionTimeoutError:
             message = 'db connection Timeout:\n' \
                       'For Cloud - check for if this machine ip is on whitelist\n' \
