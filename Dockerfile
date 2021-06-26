@@ -5,5 +5,5 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 WORKDIR ServiceManagment
-RUN pip install -r req.txt
+RUN pip install -U -r req.txt
 CMD [ "python3", "./main.py" ]
