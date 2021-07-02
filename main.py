@@ -1,6 +1,6 @@
 import schedule
 from os import environ
-from time import sleep
+from time import sleep, asctime
 from requests import get
 from pymongo import MongoClient
 from pymongo.mongo_client import database
@@ -53,7 +53,8 @@ class ServiceManagement:
             'env': ENV,
             'ip': get('https://api.ipify.org').text,
             'port': PORT,
-            'server_location':SERVER_LOCATION
+            'server_location':SERVER_LOCATION,
+            'lastUpdate': asctime()
         }
         fil = {'name': NAME, 'type': TYPE}
         db = self.client.get_database(name='service')
