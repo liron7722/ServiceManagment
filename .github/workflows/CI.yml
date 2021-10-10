@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ Development, Production ]
+  pull_request:
+    branches: [ Development, Production ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out code
+        
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: liron7722/service_managment
+          registry: docker.io
+          tags: v1, latest
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
