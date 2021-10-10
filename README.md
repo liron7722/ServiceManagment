@@ -7,8 +7,12 @@ Made to sync service registration on the main db
 - TYPE - Service type
 - ENV - Environment type
 - PORT - Service Port
+- SERVER_LOCATION - Cloud \ Home
 - DB_URI - General db uri
 
+#### Docker build cmd
+docker build -t Project-Branch:version .
+docker build -t service_managment_devlopment:0.0.1 .
 
 #### if you want virtual environment run:
 ###### In Windows
