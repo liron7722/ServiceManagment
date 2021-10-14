@@ -2,9 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ Development, Production ]
-  pull_request:
-    branches: [ Development, Production ]
+    branches: [ Development ]
 
 jobs:
   build:
@@ -17,7 +15,7 @@ jobs:
         with:
           image: liron7722/service_managment
           registry: docker.io
-          tags: v1, latest
+          tags: dev-0.0.1
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
