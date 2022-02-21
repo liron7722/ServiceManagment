@@ -1,5 +1,5 @@
 # temp stage
-FROM python:3.9-alpine as builder
+FROM python:3.11.0a5-alpine as builder
 
 #RUN addgroup --system app && adduser --system --group app
 #RUN addgroup --gid 1001 --system app && adduser --no-create-home --shell /bin/false --disabled-password --uid 1001 --system --group app
@@ -19,7 +19,7 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.t
 
 
 # final stage
-FROM python:3.9-alpine
+FROM python:3.11.0a5-alpine
 
 WORKDIR /app
 
